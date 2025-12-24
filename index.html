@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трассировщик лучей на JavaScript</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Трассировщик лучей в браузере</h1>
+            <p class="subtitle">Интерактивная визуализация 3D-сцены с использованием алгоритма трассировки лучей.</p>
+        </header>
+        
+        <div class="content">
+            <div class="canvas-container">
+                <canvas id="sceneCanvas" width="600" height="600"></canvas>
+            </div>
+            
+            <div class="controls">
+                <h2>Управление освещением</h2>
+                
+                <div class="control-group">
+                    <label>Позиция источника света по X</label>
+                    <div class="slider-container">
+                        <input type="range" id="lightX" min="-10" max="10" step="0.5" value="2">
+                        <span class="slider-value" id="lightXValue">2.0</span>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label>Позиция источника света по Y</label>
+                    <div class="slider-container">
+                        <input type="range" id="lightY" min="-10" max="10" step="0.5" value="5">
+                        <span class="slider-value" id="lightYValue">5.0</span>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label>Позиция источника света по Z</label>
+                    <div class="slider-container">
+                        <input type="range" id="lightZ" min="-10" max="10" step="0.5" value="2">
+                        <span class="slider-value" id="lightZValue">2.0</span>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label>Интенсивность света</label>
+                    <div class="slider-container">
+                        <input type="range" id="lightIntensity" min="0.5" max="3" step="0.1" value="1.5">
+                        <span class="slider-value" id="lightIntensityValue">1.5</span>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button id="renderBtn" class="render-btn">Перерисовать сцену</button>
+                    <button id="resetBtn">Сбросить настройки</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info">
+            <h3>О трассировщике лучей</h3>
+            <p>Данная реализация использует алгоритм трассировки лучей для рендеринга простой 3D-сцены, содержащей сферы и плоскости. Для каждого пикселя на холсте испускается луч из камеры, который проверяется на пересечение с объектами сцены. При обнаружении пересечения вычисляется освещение в точке пересечения с учетом положения источника света.</p>
+            
+            <div class="scene-info">
+                <div class="scene-item">
+                    <div>Объектов в сцене:</div>
+                    <div class="scene-value">6</div>
+                </div>
+                <div class="scene-item">
+                    <div>Разрешение:</div>
+                    <div class="scene-value">600x600</div>
+                </div>
+                <div class="scene-item">
+                    <div>Глубина трассировки:</div>
+                    <div class="scene-value">3</div>
+                </div>
+                <div class="scene-item">
+                    <div>Тип освещения:</div>
+                    <div class="scene-value">Диффузное + Фоновая подсветка</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <script src="index.js"></script>
+</body>
+</html>
